@@ -172,7 +172,7 @@ elif page == "DOCUMENT CHATBOT":
             system_message = f"""
             Based on the content of the uploaded file, please respond naturally to the user's query. 
             Provide clear, relevant, and concise answers. If the file does not contain sufficient information to answer the query, let the user know politely and suggest providing more details if necessary.
-            If the user indicates they wish to end the conversation (e.g., with responses like "fine" or "okay"), politly ask for furthur questions.
+            If the user indicates they wish to end the conversation (e.g., with responses like "fine" or "okay or thank you"), politly ask for furthur questions.
             Don’t give any responses from your side, and if a question is not understood, confirm with an example similar to the question that the user is asking
             If the user asks for a summary, provide a concise 2-3 line summary of the relevant content from the file.
             Here is the content of the uploaded file:
@@ -217,6 +217,11 @@ elif page == "DOCUMENT CHATBOT":
         st.session_state.chat_history = []
 
     if ready_to_chat:
+        st.markdown(
+    "<h7 style='text-align: left;'>🔔 Ensure your queries are clear and specific, as they will be matched from the provided document. Even in general conversations, the context from the document will be considered.</h7>", 
+    unsafe_allow_html=True
+)
+
         st.text_input("Ready to ASK from DOCUMENT CHATBOT", value="", key='user_input')
 
         # Add a button to submit the input
